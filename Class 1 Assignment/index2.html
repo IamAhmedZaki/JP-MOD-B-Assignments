@@ -14,13 +14,27 @@
 // Using template literals and variable using let and const and final output is shown in document.write().
 
 const name=prompt('Enter Name');
+
 const history=+prompt('Enter History Marks');
 const math=+prompt('Enter Math Marks');
 const science=+prompt('Enter Science Marks');
 const english=+prompt('Enter English Marks');
 
-let totalMarksObtained=;
+let totalMarksObtained=history+math+science+english;
 let marksObtainable=400;
+let percentage=(totalMarksObtained/marksObtainable)*100
+
+
+    
+let Grade=percentage>=90||percentage<=100?'Grade A+':
+percentage>=80||percentage<=89?'Grade A':
+percentage>=70||percentage<=79?'Grade B':
+percentage>=60||percentage<=69?'Grade C':
+percentage>=50||percentage<=59?'Grade D':'Fail'
+
+
+console.log(`${name}, your Percentage is ${percentage} and Your Grade is ${Grade}`);
+
 
 
 
