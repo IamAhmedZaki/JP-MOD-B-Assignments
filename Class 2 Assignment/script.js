@@ -662,3 +662,299 @@ const createModelOptions=(mobiles)=>{
 let selectedOption=document.querySelector('#brand');
 
 selectedOption.addEventListener('change',()=>createModelOptions(mobiles));
+
+
+function dataGeneration(mobiles) {
+    // Get selected values
+    const brand = document.querySelector('#brand').value;
+    const model = document.querySelector('#model').value;
+    const dataDiv = document.querySelector('.dataDiv');
+    
+    // Clear previous content
+    dataDiv.innerHTML = '';
+    
+    // Get the selected phone data
+    const phoneData = mobiles[brand][model];
+    let html=`<h1>${model} Specifications</h1>`
+    
+    for (const [key,value] of Object.entries(phoneData)) {
+      if (typeof value==='object' && !Array.isArray(value)) {
+        html+=`<div class="spec">
+        <h2>${key}</h2>`
+        for (const [key2,value2] of Object.entries(value)) {
+          if (typeof value2==='object' && !Array.isArray(value2)) {
+            html+=`<div class="sub-spec">
+            <h3>${key2}</h3>`
+
+            for (const [key3,value3] of Object.entries(value2)) {
+              html+=`<p>${key3}:${value3}</p>`
+            }
+
+            html+=`</div>`
+            
+          }else{
+            html+=`<p><strong>${key2}:</strong>${value2}</p>`
+          }
+        }
+        html+=`</div>`
+
+      }else if(Array.isArray(value)){
+        html+=`<div class="spec">
+        <h2>${key}</h2>
+        <p>${value.join(',')}</p>
+        </div>`
+      }
+      else{
+        html+=`<div class="spec">
+        <h2>${key}</h2>
+        <p>${value}</p>
+        </div>`
+      }
+    }
+    dataDiv.innerHTML=html
+  }
+  
+  
+  let getButton=document.getElementById('getButton')
+  
+  
+  
+
+getButton.addEventListener('click',()=>dataGeneration(mobiles))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function dataGeneration(mobiles) {
+//     // Get selected values
+//     const brand = document.querySelector('#brand').value;
+//     const model = document.querySelector('#model').value;
+//     const dataDiv = document.querySelector('.dataDiv');
+    
+//     // Clear previous content
+//     dataDiv.innerHTML = '';
+    
+//     // Get the selected phone data
+//     const phoneData = mobiles[brand][model];
+//     let html=`<h1>${model} Specifications</h1>`
+//     for (const [keys,values] of Object.entries(phoneData)) {
+     
+//       if (typeof values==='object' && !Array.isArray(values)) {
+//         html+=`<div class='spec'>
+//         <h2>${keys}</h2>` //camera
+//                                                     //rear object
+//                     // rear,object
+//                     // front,value
+//           for (const [keys2,values2] of Object.entries(values)) { //rear key
+//           if (typeof values2==='object' && !Array.isArray(values2)) { //rear object
+//             html+=`<div class='sub-spec'>
+//             <h3>${keys2}</h3>
+//             `
+//             for (const [keys3,values3] of Object.entries(values2)) {
+//               html+=`<p>${keys3}:${values3}</p>`
+//             }
+//             html+=`</div>`
+//           }else{
+//             html+=`<p><strong>${keys2}</strong>:${values2}</p>`
+//           }
+//         }
+
+//         html+=`</div>`
+//       }else if(Array.isArray(values)){
+//           html+=`<div class='spec'>
+//         <h2>${keys}</h2>
+//         <h3>${values.join(',')}</h3>
+//         </div>
+//         `
+//       }
+//       else{
+//         html+=`<div class='spec'>
+//         <h2>${keys}</h2>
+//         <h3>${values}</h3>
+//         </div>
+//         `
+//       }
+//     }
+//     dataDiv.innerHTML=html
+//   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Create basic HTML structure
+// let html = `<h2>${model} Specifications</h2>`;
+
+// // Loop through each specification
+// for (const [key, value] of Object.entries(phoneData)) {
+//     // Handle nested objects
+//     if (typeof value === 'object' && !Array.isArray(value))  {
+//         html += `<div class="spec-group">
+//                     <h3>${key}:</h3>`;
+        
+//         // Loop through nested object properties
+//         for (const [subKey, subValue] of Object.entries(value)) {
+//             // Handle deeply nested objects
+//             if (typeof subValue === 'object' && !Array.isArray(subValue)) {
+//                 html += `<div class="sub-spec">
+//                             <h4>${subKey}:</h4>`;
+                
+//                 for (const [deepKey, deepValue] of Object.entries(subValue)) {
+//                     html += `<p>${deepKey}: ${deepValue}</p>`;
+//                 }
+                
+//                 html += `</div>`;
+//             } else {
+//                 html += `<p><strong>${subKey}:</strong> ${subValue}</p>`;
+//             }
+//         }
+        
+//         html += `</div>`;
+//     }
+//     // Handle arrays
+//     else if (Array.isArray(value)) {
+//         html += `<div class="spec-group">
+//                     <h3>${key}:</h3>
+//                     <p>${value.join(', ')}</p>
+//                  </div>`;
+//     }
+//     // Handle regular values
+//     else {
+//         html += `<div class="spec-group">
+//                     <h3>${key}:</h3>
+//                     <p>${value}</p>
+//                  </div>`;
+//     }
+// }
+
+// dataDiv.innerHTML = html;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
