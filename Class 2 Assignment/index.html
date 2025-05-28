@@ -725,6 +725,13 @@ const createBrandOption = (mobiles) => {
         if (typeof value === 'object' && !Array.isArray(value)) {
           html += `<div class="spec"><h5>${key}</h5>`;
           for (const [key2, value2] of Object.entries(value)) {
+            if (typeof value2 === 'object' && !Array.isArray(value2)) {
+              html+=`<div class="sub-spec"><h6>${key2}</h6>`
+                for (const [key3,value3] of Object.entries(value2)) {
+                  html+=`<p>${key3} : ${value3}</p>`
+                }
+                 html += `</div>`
+            }else
             html += `<p><strong>${key2}:</strong> ${value2}</p>`;
           }
           html += `</div>`;
