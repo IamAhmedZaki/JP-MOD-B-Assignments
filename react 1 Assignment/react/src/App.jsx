@@ -7,7 +7,7 @@ let App=()=>{
   return(
     <>
     <h1 style={{color:'red',backgroundColor:'black', textAlign:'center', margin:'0px',padding:'0px'}}>
-      Hello World
+      Hello World & Hello React !!
     </h1>
     </>
   )
